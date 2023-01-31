@@ -29,4 +29,10 @@ export class AppController {
     const csavarRepo = this.dataSource.getRepository(Csavarbolt);
     return csavarRepo.find();
   }
+
+  @Post('/csavar')
+  newCsavar(@Body() csavar: Csavarbolt) {
+    const csavarRepo = this.dataSource.getRepository(Csavarbolt);
+    csavarRepo.save(csavar);
+  }
 }
