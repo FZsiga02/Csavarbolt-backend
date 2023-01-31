@@ -35,4 +35,10 @@ export class AppController {
     const csavarRepo = this.dataSource.getRepository(Csavarbolt);
     csavarRepo.save(csavar);
   }
+
+  @Delete('/csavar/:id')
+  deleteCsavar(@Param('id') id: number) {
+    const csavarRepo = this.dataSource.getRepository(Csavarbolt);
+    csavarRepo.delete(id);
+  }
 }
