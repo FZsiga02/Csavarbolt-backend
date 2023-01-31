@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Csavarbolt} from './csavarbolt.entity';
 
 @Entity()
 export class Rendeles {
@@ -11,4 +12,7 @@ export class Rendeles {
 
     @Column('int')
     db: number;
+
+    @OneToMany(() => Csavarbolt, (csavarbolt) => csavarbolt.rendeles)
+    csavarbolt: Csavarbolt[]
 }

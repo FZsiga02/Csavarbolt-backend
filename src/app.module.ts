@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Csavarbolt } from './csavarbolt.entity';
+import { Rendeles } from './rendeles.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { Csavarbolt } from './csavarbolt.entity';
       username: 'root',
       password: '',
       database: 'csavarbolt',
-      entities: [Csavarbolt],
+      entities: [Csavarbolt, Rendeles],
       synchronize: true,
     }),
   ],

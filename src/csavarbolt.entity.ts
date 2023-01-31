@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Rendeles } from './rendeles.entity';
 
 @Entity()
 export class Csavarbolt {
@@ -18,4 +19,6 @@ export class Csavarbolt {
     @Column('double')
     ar: number;
 
+    @ManyToOne(() => Rendeles, (rendeles) => rendeles.csavarbolt)
+    rendeles: Rendeles
 }

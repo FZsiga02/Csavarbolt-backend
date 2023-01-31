@@ -32,8 +32,13 @@ export class AppController {
 
   @Post('/csavar')
   newCsavar(@Body() csavar: Csavarbolt) {
+    csavar.id = undefined;
+    if (csavar.ar == undefined || csavar.hossz == undefined || csavar.tipus == undefined || csavar.keszlet == undefined) {
+      console.log("Minden adat megadása kötelező!")
+    } else {
     const csavarRepo = this.dataSource.getRepository(Csavarbolt);
     csavarRepo.save(csavar);
+    }
   }
 
   @Delete('/csavar/:id')
