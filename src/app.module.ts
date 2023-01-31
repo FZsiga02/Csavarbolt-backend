@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -8,12 +9,11 @@ import { AppService } from './app.service';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
+      port: 3306,
       username: 'root',
       password: '',
-      database: 'database',
-      entities: [
-        /* List of entities here */
-      ],
+      database: 'csavarbolt',
+      entities: [],
       synchronize: true,
     }),
   ],
